@@ -99,7 +99,6 @@ module Transitions
     def include_scopes
       @states.each do |state|
         state_name = state.name.to_s
-        raise InvalidMethodOverride if @klass.respond_to?(state_name)
         @klass.scope state_name, @klass.where(:state => state_name)
       end
     end
